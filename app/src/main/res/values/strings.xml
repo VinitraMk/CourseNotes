@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CourseNotes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="syllabus_fragment">Syllabus</string>
+    <string name="timetable_fragment">Exam Timetables</string>
+    <string name="previous_papers_fragment">Previous Papers</string>
+    <string name="notes_fragment">notes</string>
+</resources>

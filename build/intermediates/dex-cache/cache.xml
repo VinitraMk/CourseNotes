@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6e64ad8ef3960bf53f2140400d98a873427b0654">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c8b3070cd70f509a996672f7441d1cdc0a9c481f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_2f3d2e30648d76ce60bb01246accce151d7e4319/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_e61e33569e0f422d0718eb7f8b18e1a8151e6e1d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.3.0_06348cd3da069589c1f48f8c1cd2283decd2afb0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_f1d99f3c5cb96843ee070d049e8aa8048a3fb210/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_cac53308ae0375b94614dfce1e13d103db55feaa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.3.0_c5868f6a5f70bec040c93b41974448c751e3bfa5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_5b167a308beaee863077980bef7f03b24b2d2e06/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_09b6810cda807df5e733cfdc64c594cd5a329670/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_ba82de2342e08005b461e84e3bb387c74583a5a2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_a7a69326b745b8a34cc522faaecd483f362402cc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_9468ec96ebef943526a2a64a7e3f6749a2f4cd02/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_f93dc27074c5a1d73ba132df38906256e41006c5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_9479db08cc17e6f189156d35dee4e4ad5a092b12/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_61e7b503ec8e477bc6b24e60ba21518f67d8699d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_f28b4a431898c4bcc2ca038db287e9f8c19e04aa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="71c023789c979af57b0291bad3139ef5656fc2cb">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_01a20686108a3af7174dd993ce364a6d488ea1d4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_fad1b33891826917b3a60c5fba9d4b88b8526a56/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/home/mikasa/Downloads/CourseNotes/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_7bb08de9929566b96d9b5da3634ba735747a5021/classes.dex" />
+    </item>
+
+</items>
