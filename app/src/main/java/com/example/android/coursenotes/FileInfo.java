@@ -6,18 +6,18 @@ package com.example.android.coursenotes;
 
 public class FileInfo {
 
-    private String mfilename;
-    int mfileid;
-    public FileInfo(String filename,int fileid){
+    private String mfilename,mcode;
+
+    public FileInfo(String filename,String code){
         mfilename=filename;
-        mfileid=fileid;
+        mcode=code;
     }
 
     public String getFileName(){
         return mfilename;
     }
 
-    public int getFileId(){
-        return mfileid;
+    public String getCode(){
+        return mcode;
     }
 }

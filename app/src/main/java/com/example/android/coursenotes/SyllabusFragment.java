@@ -43,13 +43,16 @@ public class SyllabusFragment extends Fragment{
 
 
         final ArrayList<FileInfo> subject=new ArrayList<>();
+        subject.add(new FileInfo("Applied Mathematics 3","am3"));
+        subject.add(new FileInfo("Discrete Structures and Graph Theory","dsgt"));
+        subject.add(new FileInfo("Data Structures","ds"));
+        subject.add(new FileInfo("Object Oriented Programming","oopm"));
+        subject.add(new FileInfo("Digital Design","dd"));
+        subject.add(new FileInfo("Computer Organisation and Architecture","coa"));
+        String path= Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes";
+        final File nf=new File(path+"/Syllabus");
 
-        subject.add(new FileInfo("Applied Mathematics 3",R.raw.am3));
-        subject.add(new FileInfo("Object Oriented Programming",R.raw.oopm));
-        subject.add(new FileInfo("Data Structures",R.raw.data_structures));
-        subject.add(new FileInfo("COA",R.raw.coa));
-        subject.add(new FileInfo("Discrete Structures and Graph Theory",R.raw.dsgt));
-        subject.add(new FileInfo("Digital Design",R.raw.dd));
+        
 
         //ArrayAdapter adapter=new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,subject);
         FileAdapter adapter=new FileAdapter(getActivity(),subject);
@@ -60,20 +63,14 @@ public class SyllabusFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 FileInfo fileinfo=subject.get(i);
-                String path= Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes";
-                File nd=new File(path);
+
+                nf.mkdirs();
+                //File nd=new File(path);
                 String filen="";
-                if(nd.isDirectory() && nd.exists())
-                {
-                    filen=fileinfo.getFileId()+".pdf";
-                    try{
-                        CopyRAWtoSDCard(fileinfo.getFileId(),path+File.separator+filen);
-                    }
-                    catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-                file=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes/"+filen);
+                if(nf.isDirectory() && nf.exists())
+                    filen=fileinfo.getCode()+".pdf";
+
+                file=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes/syllabus"+filen);
                 Uri upath=Uri.fromFile(file);
                 Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(upath, "application/pdf");

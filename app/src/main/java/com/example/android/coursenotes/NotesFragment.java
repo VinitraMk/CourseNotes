@@ -28,17 +28,12 @@ public class NotesFragment extends Fragment  {
         View rootView=inflater.inflate(R.layout.word_list, container, false);
         ArrayList<FileInfo> subject=new ArrayList<>();
 
-        subject.add(new FileInfo("Applied Mathematics 3",R.raw.am3));
-        subject.add(new FileInfo("Object Oriented Programming",R.raw.oopm));
-        subject.add(new FileInfo("Data Structures",R.raw.data_structures));
-        subject.add(new FileInfo("COA",R.raw.coa));
-        subject.add(new FileInfo("Discrete Structures and Graph Theory",R.raw.dsgt));
-        subject.add(new FileInfo("Digital Design",R.raw.dd));
+
 
         //ArrayAdapter adapter=new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,subject);
-        FileAdapter adapter=new FileAdapter(getActivity(),subject);
+        /*FileAdapter adapter=new FileAdapter(getActivity(),subject);
         ListView listView=(ListView)rootView.findViewById(R.id.list);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);*/
 
 
 
