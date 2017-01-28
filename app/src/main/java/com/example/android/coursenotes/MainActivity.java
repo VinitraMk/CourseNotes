@@ -1,8 +1,8 @@
 package com.example.android.coursenotes;
 
+import com.example.android.coursenotes.FileDownloader;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GooglePlayServicesAvailabilityIOException;
@@ -57,12 +57,13 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 import static android.R.attr.mimeType;
 
-public class MainActivity extends Activity implements EasyPermissions.PermissionCallbacks{
+public class MainActivity extends Activity
+        implements EasyPermissions.PermissionCallbacks {
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
-    private Button b1,b2,b3,b4,b5,b6,b7,b8;
-    private boolean s1=false,s2=false,s3=false,s4=false,s5=false,s6=false,s7=false,s8=false;
-
+    private Button mCallApiButton;
+    private Button proceed;
+    LinearLayout activityLayout;
     ProgressDialog mProgress;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
@@ -74,6 +75,7 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
     public List<String> fileInfo=new ArrayList<>();
 
 
+    private static final String BUTTON_TEXT = "Semester 3";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String DOWNLOAD_DRIVE_FILE_LINK="https://drive.google.com/uc?export=download&id=";
     private static final String[] SCOPES = { DriveScopes.DRIVE_METADATA_READONLY};
@@ -85,7 +87,7 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final LinearLayout activityLayout = new LinearLayout(this);
+        activityLayout= new LinearLayout(this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
@@ -98,61 +100,38 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        TextView headingText=new TextView(this);
-        headingText.setLayoutParams(tlp);
-        headingText.setPadding(16,16,16,16);
-        headingText.setText("Select Semester");
-        b3=new Button(this);
-        b3.setText("Semester 3");
-        activityLayout.addView(b3);
+        mCallApiButton = new Button(this);
+        mCallApiButton.setText(BUTTON_TEXT);
+        activityLayout.addView(mCallApiButton);
+        mCallApiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCallApiButton.setEnabled(false);
+                mOutputText.setText("");
+                Log.v("Callingresapi","yes");
+                getResultsFromApi();
+                mCallApiButton.setEnabled(true);
+            }
+        });
+
         mOutputText = new TextView(this);
         mOutputText.setLayoutParams(tlp);
         mOutputText.setPadding(16, 16, 16, 16);
         mOutputText.setVerticalScrollBarEnabled(true);
         mOutputText.setMovementMethod(new ScrollingMovementMethod());
+        mOutputText.setText(
+                "Click the \'" + BUTTON_TEXT +"\' button to test the API.");
+        activityLayout.addView(mOutputText);
 
-        Log.v("first","SetLayout");
+        mProgress = new ProgressDialog(this);
+        mProgress.setMessage("Downloading files. This may take some time ...");
 
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                b3.setEnabled(false);
-                Log.v("Sem3","clicked");
-                mOutputText.setText("");
-                getResultsFromApi();
-                Log.v("Calledapi","yes");
-                b3.setEnabled(true);
-            }
-        });
-        mProgress = new ProgressDialog(getApplication());
-        mProgress.setMessage("Calling Drive API ...");
         setContentView(activityLayout);
+
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
-        Log.v("Credentials","yes");
-        //activityLayout.addView(mOutputText);
-
-        //s3 = true;
-
-                /*b3.setEnabled(true);
-                mProgress = new ProgressDialog(getApplication());
-                mProgress.setMessage("Calling Drive API ...");*/
-
-        //setContentView(activityLayout);
-
-
-
-
-                /*Intent intent=new Intent(MainActivity.this,SecondActivity.class);
-                startActivity(intent);*/
-
-
-        // Initialize credentials and service object.
-        /*mCredential = GoogleAccountCredential.usingOAuth2(
-                getApplicationContext(), Arrays.asList(SCOPES))
-                .setBackOff(new ExponentialBackOff());*/
     }
 
     private void askForPermission(String permission, Integer requestCode) {
@@ -184,7 +163,6 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
                     Toast.makeText(this,"File Not Found",Toast.LENGTH_SHORT).show();
                 }
             }
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{permission}, requestCode);
         }
     }
 
@@ -206,13 +184,12 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
         if (! isGooglePlayServicesAvailable()) {
             acquireGooglePlayServices();
         } else if (mCredential.getSelectedAccountName() == null) {
-            Log.v("Choosingaccount","yes");
+            Log.v("chooseacc","yes");
             chooseAccount();
-            Log.v("Hello","hi");
         } else if (! isDeviceOnline()) {
             mOutputText.setText("No network connection available.");
-        } else if(mCredential.getSelectedAccount()!=null){
-            Log.v("madereq","yes");
+        } else {
+            Log.v("makereq","y");
             new MakeRequestTask(mCredential).execute();
             /*for(int i=0;i<fileInfo.size();i++){
                 new FileDownloader().execute(DOWNLOAD_DRIVE_FILE_LINK+fileInfo.get(i));
@@ -232,28 +209,24 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
      */
     @AfterPermissionGranted(REQUEST_PERMISSION_GET_ACCOUNTS)
     private void chooseAccount() {
-        Log.v("Hello","hi");
         if (EasyPermissions.hasPermissions(
-                MainActivity.this, Manifest.permission.GET_ACCOUNTS)) {
+                this, Manifest.permission.GET_ACCOUNTS)) {
             String accountName = getPreferences(Context.MODE_PRIVATE)
                     .getString(PREF_ACCOUNT_NAME, "vinitramk@gmail.com");
-            Log.v("Chooseacc","accset");
             if (accountName != null) {
                 mCredential.setSelectedAccountName(accountName);
-                Log.v("chosenacc","yes");
                 getResultsFromApi();
+                Log.v("acc","main");
             } else {
                 // Start a dialog from which the user can choose an account
                 startActivityForResult(
                         mCredential.newChooseAccountIntent(),
                         REQUEST_ACCOUNT_PICKER);
             }
-        }
-        else {
+        } else {
             // Request the GET_ACCOUNTS permission via a user dialog
-
-           EasyPermissions.requestPermissions(
-                    MainActivity.this,
+            EasyPermissions.requestPermissions(
+                    this,
                     "This app needs to access your Google account (via Contacts).",
                     REQUEST_PERMISSION_GET_ACCOUNTS,
                     Manifest.permission.GET_ACCOUNTS);
@@ -437,12 +410,11 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
         private Exception mLastError = null;
 
         MakeRequestTask(GoogleAccountCredential credential) {
-            Log.v("mq","constructor");
             HttpTransport transport = AndroidHttp.newCompatibleTransport();
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
             mService = new com.google.api.services.drive.Drive.Builder(
                     transport, jsonFactory, credential)
-                    .setApplicationName("CourseNotes")
+                    .setApplicationName("Quickstart")
                     .build();
         }
 
@@ -453,7 +425,7 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
         @Override
         protected List<String> doInBackground(Void... params) {
             try {
-                Log.v("Data","api");
+
                 return getDataFromApi();
 
             } catch (Exception e) {
@@ -474,14 +446,14 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
             FileList result = mService.files().list()
                     .setQ("'0B74Wm7gl1GJGaThyTnNnT2d5ZkU' in parents")
                     .execute();
-            Log.v("Query","set");
             List<File> files = result.getFiles();
             if (files != null) {
                 for (File file : files) {
                     fileInfo.add(file.getId());
-                    String extStorageDirectory = Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes";
-                    java.io.File folder = new java.io.File(extStorageDirectory,"Syllabus");
+                    String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+                    java.io.File folder = new java.io.File(extStorageDirectory, "CourseNotes");
                     folder.mkdir();
+
                     java.io.File pdfFile = new java.io.File(folder, file.getName());
 
                     try{
@@ -490,7 +462,6 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
                         e.printStackTrace();
                     }
                     FileDownloader.downloadFile(DOWNLOAD_DRIVE_FILE_LINK+file.getId(),pdfFile);
-                    Log.v("Downloadfiles","yes");
                 }
             }
             return fileInfo;
@@ -509,11 +480,20 @@ public class MainActivity extends Activity implements EasyPermissions.Permission
             if (output == null || output.size() == 0) {
                 mOutputText.setText("No results returned.");
             } else {
-                /*output.add(0, "Data retrieved using the Drive API:");
-                mOutputText.setText(TextUtils.join("\n", output));*/
-                Log.v("Calling2","yes");
                 Intent intent=new Intent(MainActivity.this,SecondActivity.class);
                 startActivity(intent);
+                //output.add(0, "Data retrieved using the Drive API:");
+                //mOutputText.setText(TextUtils.join("\n", output));
+                /*proceed=new Button(MainActivity.this);
+                proceed.setText("Proceed");
+                activityLayout.addView(proceed);
+                proceed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                        startActivity(intent);
+                    }
+                });*/
             }
         }
 

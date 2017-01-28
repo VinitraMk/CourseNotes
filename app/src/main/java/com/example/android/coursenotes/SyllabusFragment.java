@@ -50,7 +50,7 @@ public class SyllabusFragment extends Fragment{
         subject.add(new FileInfo("Digital Design","dd"));
         subject.add(new FileInfo("Computer Organisation and Architecture","coa"));
         String path= Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes";
-        final File nf=new File(path+"/Syllabus");
+        final File nf=new File(path);
 
         
 
@@ -70,7 +70,7 @@ public class SyllabusFragment extends Fragment{
                 if(nf.isDirectory() && nf.exists())
                     filen=fileinfo.getCode()+".pdf";
 
-                file=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes/syllabus"+filen);
+                file=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/CourseNotes/"+filen);
                 Uri upath=Uri.fromFile(file);
                 Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(upath, "application/pdf");
